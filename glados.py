@@ -15,6 +15,7 @@ if __name__ == '__main__':
         exit(0)
 
     # 查看信息
+    print(f"COOKIE环境变量值: {cookies}")
     print(f"环境变量长度: {len(cookies)}")
     print(f"解析出Cookies数量: {len(cookies)}")
     
