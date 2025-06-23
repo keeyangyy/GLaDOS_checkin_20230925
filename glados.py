@@ -8,6 +8,7 @@ if __name__ == '__main__':
 # 推送内容
     sendContent = ''
 # glados账号cookie 直接使用数组 如果使用环境变量需要字符串分割一下
+    cookies_str = os.environ.get("GLADOS_COOKIE", "")
     cookies = os.environ.get("GLADOS_COOKIE", []).split("&")
     if cookies[0] == "":
         print('未获取到COOKIE变量') 
@@ -15,8 +16,7 @@ if __name__ == '__main__':
         exit(0)
 
     # 查看信息
-    print(f"COOKIE环境变量值: {cookies}")
-    print(f"环境变量长度: {len(cookies)}")
+    print(f"环境变量长度: {len(cookies_str)}")
     print(f"解析出Cookies数量: {len(cookies)}")
     
     url= "https://glados.rocks/api/user/checkin"
