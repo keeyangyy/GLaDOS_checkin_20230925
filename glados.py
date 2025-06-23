@@ -13,6 +13,11 @@ if __name__ == '__main__':
         print('未获取到COOKIE变量') 
         cookies = []
         exit(0)
+
+    # 查看信息
+    print(f"环境变量长度: {len(cookies)}")
+    print(f"解析出Cookies数量: {len(cookies)}")
+    
     url= "https://glados.rocks/api/user/checkin"
     url2= "https://glados.rocks/api/user/status"
     referer = 'https://glados.rocks/console/checkin'
@@ -24,6 +29,7 @@ if __name__ == '__main__':
     for cookie in cookies:
         checkin = requests.post(url,headers={'cookie': cookie ,'referer': referer,'origin':origin,'user-agent':useragent,'content-type':'application/json;charset=UTF-8'},data=json.dumps(payload))
         state =  requests.get(url2,headers={'cookie': cookie ,'referer': referer,'origin':origin,'user-agent':useragent})
+        print(f"状态响应: {json.dumps(state.json())}")  # 查看信息
     #--------------------------------------------------------------------------------------------------------#  
         time = state.json()['data']['leftDays']
         time = time.split('.')[0]
