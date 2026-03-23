@@ -33,6 +33,7 @@ if __name__ == '__main__':
         print(f"状态响应: {json.dumps(state.json())}")  # 查看信息
     #--------------------------------------------------------------------------------------------------------#  
         time = state.json()['data']['leftDays']
+        time = str(time)                # 统一转成字符串，避免拆分错误
         time = time.split('.')[0]
         email = state.json()['data']['email']
         if 'message' in checkin.text:
